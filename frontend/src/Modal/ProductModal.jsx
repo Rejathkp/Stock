@@ -4,6 +4,7 @@ const ProductModal = ({ isVisible, onClose, onSubmit }) => {
     if (!isVisible) return null;
 
     return (
+        <>
         <div style={{
             position: 'fixed',
             top: '0' ,
@@ -25,18 +26,19 @@ const ProductModal = ({ isVisible, onClose, onSubmit }) => {
                 overflowY: 'auto',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
             }}>
+                <h1 style={{ color: 'black', fontWeight: 'bold', marginBottom: '20px'  }}>Add Products</h1>
                 <form onSubmit={onSubmit}>
                     <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
                         <div style={{ flex: '1' }}>
                             <label>
                                 Product Code:
-                                <input type="text" name="code" required style={{ width: '100%', padding: '8px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                <input type="text" name="code" required style={{ width: '100%', padding: '4px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
                             </label>
                         </div>
                         <div style={{ flex: '1' }}>
                             <label>
                                 Name:
-                                <input type="text" name="name" required style={{ width: '100%', padding: '8px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                <input type="text" name="name" required style={{ width: '100%', padding: '4px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
                             </label>
                         </div>
                     </div>
@@ -44,20 +46,20 @@ const ProductModal = ({ isVisible, onClose, onSubmit }) => {
                         <div style={{ flex: '1' }}>
                             <label>
                                 Quantity:
-                                <input type="number" name="quantity" required style={{ width: '100%', padding: '8px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                <input type="number" name="quantity" required style={{ width: '100%', padding: '4px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
                             </label>
                         </div>
                         <div style={{ flex: '1' }}>
                             <label>
                                 Price:
-                                <input type="text" name="price" required style={{ width: '100%', padding: '8px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                <input type="text" name="price" required style={{ width: '100%', padding: '4px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
                             </label>
                         </div>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
                         <label>
                             Description:
-                            <textarea name="description" required style={{ width: '100%', padding: '8px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
+                            <textarea name="description" required style={{ width: '100%', padding: '4px', marginTop: '4px', border: '1px solid #ccc', borderRadius: '4px' }} />
                         </label>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
@@ -71,6 +73,7 @@ const ProductModal = ({ isVisible, onClose, onSubmit }) => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 
