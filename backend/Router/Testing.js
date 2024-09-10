@@ -1,11 +1,11 @@
-import express from "express"
-import { protect } from "../Middleware/Token.js"
-import Login from "../Controller/Login.js"
+import express from "express";
+import { protect } from "../Middleware/Token.js";
+import Login from "../Controller/Login.js";
 
-const router=express.Router()
+const router = express.Router();
 
-const middleware=[protect]
+const middleware = [protect];
 
-router.post("/login",Login)
+router.post("/login", Login);
 
-export default router
+export default router;
