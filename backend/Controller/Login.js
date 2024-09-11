@@ -38,7 +38,7 @@ const Login = async (req, res) => {
     const Useremail = await User.findOne({ email });
 
     if (!Useremail) {
-        return res.status(404).json({ message: "User not found" });
+        return res.status(404).json({ message: "Admin not found" });
     }
 
     Directly compare plaintext passwords
