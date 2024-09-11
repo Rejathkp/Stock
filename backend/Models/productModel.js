@@ -6,9 +6,18 @@ const productSchema = new mongoose.Schema({
     quantity: { type:Number, required:true },
     price: { type:Number, required:true },
     description: { type:String, required:true },
-    // category: { type:String, required:true}
+    category: { type:String, required:true },
 });
-
 const productModel = mongoose.model.product || mongoose.model("product",productSchema)
 
-export default productModel;
+const subproductSchema = new mongoose.Schema({
+    name: { type:String, required:true}
+});
+const subproductModel = mongoose.model.subproduct || mongoose.model("subproduct",subproductSchema)
+
+const franchiseSchema = new mongoose.Schema({
+    name: { type:String, required:true}
+});
+const franchiseModel = mongoose.model.subproduct || mongoose.model("subproduct",franchiseSchema)
+
+export default {productModel,categoryModel,subproductModel};
