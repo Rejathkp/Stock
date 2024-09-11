@@ -17,6 +17,7 @@ connectDB();
 
 //api endpoints
 app.use("/api/user",router)
+app.use("/api/product",router)
 
 app.get("/",(req,res)=>{
     res.send("API Working")

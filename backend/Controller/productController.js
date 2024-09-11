@@ -9,10 +9,9 @@ const addProduct = async (req,res) => {
         quantity:req.body.quantity,
         price:req.body.price,
         description:req.body.description,
-        // category:req.body.category
     })
     try {
-        await product.save();
+        await product.save(); 
         res.json({success:true,message:"Product Added"})
     } catch (error) {
         console.log(error);
