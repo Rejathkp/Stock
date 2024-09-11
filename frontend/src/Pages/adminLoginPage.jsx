@@ -78,28 +78,57 @@
 // export default AdminLogin;
 
 
-
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
 import { baseURL } from './../Services/BaseUrl'; 
+import { adminLoginUrl } from './../Utils/Constatns'; 
 
 const AdminLogin = () => {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [message, setMessage] = useState('');
+  const [validationError, setValidationError] = useState({ email: '', password: '' });
+  
+  const navigate = useNavigate();  // Initialize useNavigate
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Reset previous validation errors
+    setValidationError({ email: '', password: '' });
+
+    let hasError = false;
+
+    // Validation for email
+    if (!email) {
+      setValidationError(prev => ({ ...prev, email: 'Please enter email' }));
+      hasError = true;
+    }
+
+    // Validation for password
+    if (!password) {
+      setValidationError(prev => ({ ...prev, password: 'Please enter password' }));
+      hasError = true;
+    }
+
+    // Stop the process if validation fails
+    if (hasError) {
+      return;
+    }
+
     try {
-      const response = await axios.post(`${baseURL}/user/login`, { email, password });
+      const response = await axios.post(`${baseURL}${adminLoginUrl}`, { email, password });
       console.log('response', response);
       const { token } = response.data;
 
       localStorage.setItem('token', token); 
       setMessage('Login successful');
       setError(null);
+
+      // Redirect to the categories page after successful login
+      navigate('/categories');  // This will redirect the user to the categories page
     } 
     catch (error) {
       setMessage('');
@@ -138,16 +167,16 @@ const AdminLogin = () => {
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
         }}
       >
-
         <label>Email:</label>
         <input 
           type="text" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
           placeholder="Enter Email"
-          required 
           style={{ marginBottom: '10px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
         />
+        {/* Show validation error for email */}
+        {validationError.email && <p style={{ color: 'red', marginTop: '-8px', marginBottom: '10px' }}>{validationError.email}</p>}
 
         <label>Password:</label>
         <input 
@@ -155,9 +184,11 @@ const AdminLogin = () => {
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
           placeholder="Enter Password"
-          required 
           style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
         />
+        {/* Show validation error for password */}
+        {validationError.password && <p style={{ color: 'red', marginTop: '-8px', marginBottom: '10px' }}>{validationError.password}</p>}
+
         <button 
           type="submit" 
           style={{ 
