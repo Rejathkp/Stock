@@ -29,7 +29,6 @@
 
 // export default Login;
 
-
 import jwt from "jsonwebtoken";
 import User from "../Models/adminModel.js";
 
@@ -38,15 +37,15 @@ const Login = async (req, res) => {
     const Useremail = await User.findOne({ email });
 
     if (!Useremail) {
-        return res.status(404).json({ message: "Admin not found" });
+        return res.status(404).json({ message: "User not found" });
     }
 
-    Directly compare plaintext passwords
-    // if compare(password !== Useremail.password) {
-        return res.status(401).status(401).json({ message: "Invalid password" });
+    // Directly compare plaintext passwords
+    if (password !== Useremail.password) {
+        return res.status(401).json({ message: "Invalid password" });
     }
 
-    res.status(200).json({ message: "Login Successful", token: tokengenerate(Useremail._id) });
+    res.json({ message: "Login Successful", token: tokengenerate(Useremail._id) });
 }
 
 const tokengenerate = (id) => {
