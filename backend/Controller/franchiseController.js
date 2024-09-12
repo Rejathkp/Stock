@@ -3,14 +3,14 @@ import franchiseModel from "../Models/franchiseModel.js";
 const addFranchise = async (req,res) => {
 
     const franchise = new franchiseModel({
-        name:req.body.name,
+        franchiseName:req.body.franchiseName,
     })
     try {
         await franchise.save();
-        res.json({success:200,message:"Franchise Added"})
+        res.status(200).json({message:"Franchise Added"})
     } catch (error) {
         console.log(error);
-        res.json({success:404,message:"Error"})
+        res.status(404).json({message:"Error"})
     }
 }
 
@@ -18,10 +18,10 @@ const addFranchise = async (req,res) => {
 const listFranchise = async (req,res) => {
     try {
         const franchises = await franchiseModel.find({});
-        res.json({success:200,data:franchises})
+        res.status(200).json({data:franchises})
     } catch (error) {
         console.log(error);
-        res.json({success:404,message:"Error"})
+        res.status(404).json({message:"Error"})
     }
 }
 
@@ -29,10 +29,10 @@ const listFranchise = async (req,res) => {
 const removeFranchise = async (req,res) => {
     try {
         await franchiseModel.findByIdAndDelete(req.body.id)
-        res.json({success:200,message:"Franchise Removed"})
+        res.status(200).json({message:"Franchise Removed"})
     } catch (error) {
         console.log(error);
-        res.json({success:404,message:"Error"})
+        res.status(404).json({message:"Error"})
     }
 }
 
