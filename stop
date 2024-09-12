@@ -1,0 +1,90 @@
+[33mcommit 40d8fc7a1b052d9f05090041cce3a524e4ec56da[m[33m ([m[1;36mHEAD -> [m[1;32mbackend[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 19dcfc8 a33fcc1
+Author: Javad Ali P <122251720+JavadAlip@users.noreply.github.com>
+Date:   Wed Sep 11 10:47:41 2024 +0530
+
+    Merge pull request #4 from Rejathkp/frontend
+    
+    Login completed
+
+[33mcommit a33fcc1d2525d7c9c5dfd1c0295ec288ed35853e[m
+Author: Javad Ali P <javadalipp911@gmail.com>
+Date:   Wed Sep 11 10:46:53 2024 +0530
+
+    Login completed
+
+[33mcommit 19dcfc8e7dd438530f235be232f442f16d4f15c8[m
+Merge: 9bf4ef6 09566c5
+Author: Rejath <127827915+Rejathkp@users.noreply.github.com>
+Date:   Wed Sep 11 09:58:04 2024 +0530
+
+    Merge pull request #3 from Rejathkp/backend
+    
+    commit resolved
+
+[33mcommit 09566c53af2d9bc3d0e16c17dc4623322af34760[m[33m ([m[1;31morigin/backend[m[33m)[m
+Author: Rejathkp <rejath.kallenparari@gmail.com>
+Date:   Wed Sep 11 09:55:39 2024 +0530
+
+    commit resolved
+
+[33mcommit 9bf4ef605bf977bcf871b9b772351749f15da635[m
+Merge: 1473a11 40f7aed
+Author: Javad Ali P <122251720+JavadAlip@users.noreply.github.com>
+Date:   Wed Sep 11 09:46:57 2024 +0530
+
+    Merge pull request #2 from Rejathkp/frontend
+    
+    Frontend
+
+[33mcommit 40f7aed7c05a0ac23a5e4577059168f1a970ce5a[m[33m ([m[1;31morigin/frontend[m[33m)[m
+Author: Javad Ali P <javadalipp911@gmail.com>
+Date:   Tue Sep 10 17:00:04 2024 +0530
+
+    login setup
+
+[33mcommit 9b325633b43d90100c5a1947a96b37e830550694[m
+Author: Javad Ali P <javadalipp911@gmail.com>
+Date:   Tue Sep 10 12:34:06 2024 +0530
+
+    Modal setup wirh h1
+
+[33mcommit 1473a11dd151727fc9d9357534ce0c4ff1af6a7b[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 69d2db3 ac43f08
+Author: Rejathkp <rejath.kallenparari@gmail.com>
+Date:   Tue Sep 10 12:25:41 2024 +0530
+
+    Merge branch 'main' of https://github.com/Rejathkp/Stock
+
+[33mcommit 69d2db3526140e9e05d14c6ceba63234dcf62fc4[m
+Author: Rejathkp <rejath.kallenparari@gmail.com>
+Date:   Tue Sep 10 12:16:30 2024 +0530
+
+    db changed
+
+[33mcommit ac43f08e5a6ae3de13d8c66b8a789c98572f49a0[m
+Merge: 5473ad1 1caafd5
+Author: Rejath <127827915+Rejathkp@users.noreply.github.com>
+Date:   Tue Sep 10 10:23:20 2024 +0530
+
+    Merge pull request #1 from Rejathkp/frontend
+    
+    add space
+
+[33mcommit 5473ad1493eb2e691e02ab00459ee232f93646a6[m
+Author: Rejathkp <rejath.kallenparari@gmail.com>
+Date:   Tue Sep 10 10:22:07 2024 +0530
+
+    add space
+
+[33mcommit 1caafd59a4b8dca97e1fe2876b2b39c2922c9f92[m
+Author: Javad Ali P <javadalipp911@gmail.com>
+Date:   Tue Sep 10 10:18:19 2024 +0530
+
+    add space
+
+[33mcommit baea84adc8cac54b1b3396f82c9db985c94eff52[m
+Author: Rejathkp <rejath.kallenparari@gmail.com>
+Date:   Tue Sep 10 10:09:31 2024 +0530
+
+    first commit
