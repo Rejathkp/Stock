@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import router from "./Router/Testing.js"
+import router from "./Router/Router.js"
 import "dotenv/config.js"
 import connectDB from "./Config/Mongo.js"
 
@@ -16,10 +16,13 @@ app.use(cors())
 connectDB();
 
 //api endpoints
-app.use("/api/user",router)
-app.use("/api/product",router)
+app.use("/admin",router)
+app.use("/product",router)
+app.use("/subproduct",router)
+app.use("/categories",router)
+app.use("/franchise",router)
 
-app.get("/",(req,res)=>{
+app.get("/",(req,res)=>{ 
     res.send("API Working")
 })
 
