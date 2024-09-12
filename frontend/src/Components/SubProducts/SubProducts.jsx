@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import Modal from '../../Modal/subproductsModal'; 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const SubProducts = () => {
+    const [isModalVisible, setModalVisible] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const subProductsData = [
         { code: 123, name: 'Sub Product 1', quantity: 20, category: 'Stock', price: '₹299/-', description: 'This is sample desc 1' },
@@ -12,6 +14,20 @@ const SubProducts = () => {
     ];
     const subProductsPerPage = 10;
     const totalPages = Math.ceil(subProductsData.length / subProductsPerPage);
+
+    const handleOpenModal = () => {
+        setModalVisible(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalVisible(false);
+    };
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log('Form submitted');
+        handleCloseModal();
+    };
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {
@@ -31,7 +47,22 @@ const SubProducts = () => {
 
     return (
         <div style={{ backgroundColor: '#d2dcfe', padding: '20px', borderRadius: '4px', height: '100%', overflowY: 'auto', width: '100%' }}>
-            <h1 style={{ color: 'black',  fontWeight: 'bold', marginBottom: '20px'  }}> Sub Products</h1>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h1 style={{ color: 'black', fontWeight: 'bold'}}>Sub Products</h1>
+                <button
+                    type="button"
+                    onClick={handleOpenModal}
+                    style={{
+                        backgroundColor: 'black',
+                        color: 'white',
+                        borderRadius: '8px',
+                        padding: '6px 8px',
+                        border: 'none'
+                    }}
+                >
+                    Add
+                </button>
+            </div>
             <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white' }}>
                 <thead>
                     <tr className='bg-blue-800'>
@@ -75,6 +106,7 @@ const SubProducts = () => {
                     <FaChevronRight/>
                 </button>
             </div>
+            <Modal isVisible={isModalVisible} onClose={handleCloseModal} onSubmit={handleFormSubmit} />
         </div>
     );
 };

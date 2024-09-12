@@ -108,7 +108,6 @@ const Products = () => {
                     <FaChevronRight/>
                 </button>
             </div>
-
             <Modal isVisible={isModalVisible} onClose={handleCloseModal} onSubmit={handleFormSubmit} />
         </div>
     );
