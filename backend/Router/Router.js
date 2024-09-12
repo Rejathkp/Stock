@@ -9,12 +9,14 @@ import {
 import {
   addSubProduct,
   listSubProduct,
+  removeSubProduct,
 } from "../Controller/subProductController.js";
 import {
   addFranchise,
   listFranchise,
+  removeFranchise,
 } from "../Controller/franchiseController.js";
-import { addCategory, listCategory } from "../Controller/categoryController.js";
+import { addCategory, listCategory, removeCategory } from "../Controller/categoryController.js";
 
 const router = express.Router();
 
@@ -29,15 +31,18 @@ router.get("/listproduct", listProduct);
 router.post("/removeproduct", removeProduct);
 
 //sub-products
-router.post("/addsubproduct",addSubProduct)
-router.get("/listsubproduct",listSubProduct)
+router.post("/addsubproduct",addSubProduct);
+router.get("/listsubproduct",listSubProduct);
+router.post("/removesubproduct", removeSubProduct);
 
 //franchise
-router.post("/addfranchise",addFranchise)
-router.get("/listfranchise",listFranchise)
+router.post("/addfranchise",addFranchise);
+router.get("/listfranchise",listFranchise);
+router.post("/removefranchise", removeFranchise);
 
 //categories
 router.post("/addcategory", addCategory);
 router.get("/listcategory", listCategory);
+router.post("/removecategory", removeCategory);
 
 export default router;
