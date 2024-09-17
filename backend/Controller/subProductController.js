@@ -2,18 +2,18 @@ import subProductModel from "../Models/subProductModel.js"
 
 const addSubProduct = async (req, res) => {
   const subProduct = new subProductModel({
-    code: req.body.code,
-    name: req.body.name,
-    quantity: req.body.quantity,
-    price: req.body.price,
-    description: req.body.description,
+    subProductCode: req.body.subProductCode,
+    subProductName: req.body.subProductName,
+    subProductMinimumQuantity: req.body.subProductMinimumQuantity,
+    subProductPrice: req.body.subProductPrice,
+    subProductDescription: req.body.subProductDescription,
   });
   try {
     await subProduct.save();
-    res.json({ success: true, message: "Sub-Product Added" });
+    res.status(200).json({ message: "Sub-Product Added" });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: "Error" });
+    res.status(404).json({ message: "Error" });
   }
 };
 
@@ -21,21 +21,21 @@ const addSubProduct = async (req, res) => {
 const listSubProduct = async (req, res) => {
   try {
     const subProducts = await subProductModel.find({});
-    res.json({ success: 200, data: subProducts });
+    res.status(200).json({ data: subProducts });
   } catch (error) {
     console.log(error);
-    res.json({ success: 404, message: "Error" });
+    res.status(404).json({ message: "Error" });
   }
 };
 
 //remove subproduct item
 const removeSubProduct = async (req, res) => {
   try {
-    await removeSubProduct.findByIdAndDelete(req.body.id);
-    res.json({ success: 200, message: "Sub-Product Removed" });
+    await subProductModel.findByIdAndDelete(req.body.id);
+    res.status(200).json({ message: "Sub-Product Removed" });
   } catch (error) {
     console.log(error);
-    res.json({ success: 404, message: "Error" });
+    res.status(404).json({ message: "Error" });
   }
 };
 
