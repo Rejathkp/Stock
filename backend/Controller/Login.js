@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import User from "../Models/adminModel.js";
-
+//test
 const Login = async(req,res) => {
     const { email, password } = req.body;
     const Useremail = await User.findOne({ email });
