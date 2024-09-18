@@ -7,11 +7,11 @@ const Products = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const productsData = [
-        { code: 123, name: 'Product 1', quantity: 20, category: 'Stock', price: '₹299/-', description: 'This is sample desc 1' },
-        { code: 124, name: 'Product 2', quantity: 25, category: 'Stock', price: '₹499/-', description: 'This is sample desc 2' },
-        { code: 125, name: 'Product 3', quantity: 30, category: 'Stock', price: '₹199/-', description: 'This is sample desc 3' },
-        { code: 126, name: 'Product 4', quantity: 10, category: 'Stock', price: '₹399/-', description: 'This is sample desc 4' },
-        { code: 127, name: 'Product 5', quantity: 15, category: 'Stock', price: '₹599/-', description: 'This is sample desc 5' },
+        { code: 123, name: 'Product 1', quantity: 20, category: 'Stock', price: '₹299/-', description: 'This is sample desc 1', subproducts: 'This is sample desc 1' },
+        { code: 124, name: 'Product 2', quantity: 25, category: 'Stock', price: '₹499/-', description: 'This is sample desc 2', subproducts: 'This is sample desc 1' },
+        { code: 125, name: 'Product 3', quantity: 30, category: 'Stock', price: '₹199/-', description: 'This is sample desc 3', subproducts: 'This is sample desc 1' },
+        { code: 126, name: 'Product 4', quantity: 10, category: 'Stock', price: '₹399/-', description: 'This is sample desc 4', subproducts: 'This is sample desc 1' },
+        { code: 127, name: 'Product 5', quantity: 15, category: 'Stock', price: '₹599/-', description: 'This is sample desc 5', subproducts: 'This is sample desc 1' },
     ];
 
     const productsPerPage = 10;
@@ -74,6 +74,7 @@ const Products = () => {
                         <th className='bg-blue-800' style={{ border: '1px solid #ddd', padding: '8px', color: 'white' }}>Category Name</th>
                         <th className='bg-blue-800' style={{ border: '1px solid #ddd', padding: '8px', color: 'white' }}>Price</th>
                         <th className='bg-blue-800' style={{ border: '1px solid #ddd', padding: '8px', color: 'white' }}>Description</th>
+                        <th className='bg-blue-800' style={{ border: '1px solid #ddd', padding: '8px', color: 'white' }}>Sub Products</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,6 +86,7 @@ const Products = () => {
                             <td style={{ border: '1px solid #ddd', padding: '8px', fontSize: '14px' }}>{product.category}</td>
                             <td style={{ border: '1px solid #ddd', padding: '8px', fontSize: '14px' }}>{product.price}</td>
                             <td style={{ border: '1px solid #ddd', padding: '8px', fontSize: '14px' }}>{product.description}</td>
+                            <td style={{ border: '1px solid #ddd', padding: '8px', fontSize: '14px' }}>{product.subproducts}</td>
                         </tr>
                     ))}
                 </tbody>
