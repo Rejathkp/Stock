@@ -20,29 +20,28 @@ import { addCategory, listCategory, removeCategory } from "../Controller/categor
 
 const router = express.Router();
 
-const middleware = [protect];
-
 //login
 router.post("/login", Login);
 
-//products
-router.post("/addproduct", addProduct);
-router.get("/listproduct", listProduct);
-router.post("/removeproduct", removeProduct);
+//products 
+router.post("/addproduct", protect, addProduct);
+router.get("/listproduct", protect, listProduct);
+router.delete("/removeproduct", protect, removeProduct);
 
-//sub-products
-router.post("/addsubproduct",addSubProduct);
-router.get("/listsubproduct",listSubProduct);
-router.post("/removesubproduct", removeSubProduct);
+//sub-products 
+router.post("/addsubproduct", protect, addSubProduct);
+router.get("/listsubproduct", protect, listSubProduct);
+router.delete("/removesubproduct", protect, removeSubProduct);
 
-//franchise
-router.post("/addfranchise",addFranchise);
-router.get("/listfranchise",listFranchise);
-router.post("/removefranchise", removeFranchise);
+//franchise 
+router.post("/addfranchise", protect, addFranchise);
+router.get("/listfranchise", protect, listFranchise);
+router.delete("/removefranchise", protect, removeFranchise);
 
-//categories
-router.post("/addcategory", addCategory);
-router.get("/listcategory", listCategory);
-router.post("/removecategory", removeCategory);
+//categories 
+router.post("/addcategory", protect, addCategory);
+router.get("/listcategory", protect, listCategory);
+router.delete("/removecategory", protect, removeCategory);
+
 
 export default router;
