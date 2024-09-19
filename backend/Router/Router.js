@@ -5,43 +5,52 @@ import {
   addProduct,
   listProduct,
   removeProduct,
+  updateProduct,
 } from "../Controller/productController.js";
 import {
   addSubProduct,
   listSubProduct,
   removeSubProduct,
+  updateSubProduct,
 } from "../Controller/subProductController.js";
 import {
   addFranchise,
   listFranchise,
   removeFranchise,
+  updateFranchise,
 } from "../Controller/franchiseController.js";
-import { addCategory, listCategory, removeCategory } from "../Controller/categoryController.js";
+import { addCategory, listCategory, removeCategory, updateCategory } from "../Controller/categoryController.js";
 
 const router = express.Router();
 
 //login
 router.post("/login", Login);
 
+//middleware (applies protect to all routes after this)
+router.use(protect);
+
 //products 
-router.post("/addproduct", protect, addProduct);
-router.get("/listproduct", protect, listProduct);
-router.delete("/removeproduct", protect, removeProduct);
+router.post("/addproduct", addProduct);
+router.get("/listproduct", listProduct);
+router.delete("/removeproduct/:id", removeProduct);
+router.put("/updateproduct/:id", updateProduct);
 
 //sub-products 
-router.post("/addsubproduct", protect, addSubProduct);
-router.get("/listsubproduct", protect, listSubProduct);
-router.delete("/removesubproduct", protect, removeSubProduct);
+router.post("/addsubproduct", addSubProduct);
+router.get("/listsubproduct", listSubProduct);
+router.delete("/removesubproduct/:id", removeSubProduct);
+router.put("/updatesubproduct/:id", updateSubProduct);
 
 //franchise 
-router.post("/addfranchise", protect, addFranchise);
-router.get("/listfranchise", protect, listFranchise);
-router.delete("/removefranchise", protect, removeFranchise);
+router.post("/addfranchise", addFranchise);
+router.get("/listfranchise", listFranchise);
+router.delete("/removefranchise/:id", removeFranchise);
+router.put("/updatefranchise/:id", updateFranchise);
 
 //categories 
-router.post("/addcategory", protect, addCategory);
-router.get("/listcategory", protect, listCategory);
-router.delete("/removecategory", protect, removeCategory);
-
+router.post("/addcategory", addCategory);
+router.get("/listcategory", listCategory);
+router.delete("/removecategory/:id", removeCategory);
+router.put("/updatecategory/:id", updateCategory);
 
 export default router;
