@@ -31,7 +31,7 @@ const listSubProduct = async (req, res) => {
 //remove subproduct item
 const removeSubProduct = async (req, res) => {
   try {
-    await subProductModel.findByIdAndDelete(req.body.id);
+    await subProductModel.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Sub-Product Removed" });
   } catch (error) {
     console.log(error);
@@ -39,4 +39,30 @@ const removeSubProduct = async (req, res) => {
   }
 };
 
-export { addSubProduct, listSubProduct, removeSubProduct };
+// Update Subproduct
+const updateSubProduct = async (req, res) => {
+  try {
+    const updatedSubProduct = await subProductModel.findByIdAndUpdate(
+      req.params.id, 
+      {
+        subProductCode: req.body.subProductCode,
+        subProductName: req.body.subProductName,
+        subProductMinimumQuantity: req.body.subProductMinimumQuantity,
+        subProductPrice: req.body.subProductPrice,
+        subProductDescription: req.body.subProductDescription,
+      }, // Update fields
+      { new: true, runValidators: true } // Return the updated document and run validation
+    );
+
+    if (!updatedSubProduct) {
+      return res.status(404).json({ message: "Sub-Product not found" });
+    }
+
+    res.status(200).json({ message: "Sub-Product Updated", data: updatedSubProduct });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error updating sub-product" });
+  }
+};
+
+export { addSubProduct, listSubProduct, removeSubProduct, updateSubProduct };
